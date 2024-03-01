@@ -132,7 +132,6 @@
     .c17 {
       background-color: #ffffff;
       max-width: 468pt;
-      padding: 72pt 72pt 72pt 72pt
     }
 
     .c11 {
@@ -259,6 +258,29 @@
       line-height: 1.0;
       text-align: left
     }
+
+    .imagen-firma {
+      position: relative;
+      bottom: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: 5fr 1fr;
+      align-items: start;
+      grid-gap: 20px;
+    }
+
+    .imagen-firma {
+      grid-column: 2 / 3;
+      justify-self: end;
+    }
+
+    .grid-item-qr {
+      justify-self: end;
+    }
   </style>
 </head>
 
@@ -267,13 +289,14 @@
     <p class="c6 c8"><span class="c14"></span></p>
     <p class="c6 c10"><span class="c4 c11"></span></p>
   </div>
-  <p class="c8 c15"><span class="c3">Cuenta de cobro #1171</span></p>
+  <p id="numero-cuenta-cobro" class="c8 c15"><span class="c3">XXXXXXXX</span></p>
   <p class="c2 c6"><span class="c3"></span></p>
-  <p class="c2"><span class="c16">Envigado,5 de febrero de 2024</span></p>
+  <p id="fecha-actual" class="c2"><span class="c16">Envigado,5 de febrero de 2024</span></p>
   <p class="c10 c6 c13"><span class="c14"></span></p>
   <p class="c9"><span class="c3">CUENTA DE COBRO </span></p>
   <p class="c9 c6"><span class="c3"></span></p>
-  <p class="c12"><span class="c1">ARESS</span></p>
+  <p id="nombre-cliente" class="c12 c0"><span class="c1">XXXXX</span></p>
+  <p id="documento-cliente" class="c9 c6 c0"><span class="c4 c0">XXXXXXXXXXXX</span></p>
   <p class="c9 c6" id="h.gjdgxs"><span class="c4 c0"></span></p>
   <p class="c9 c6"><span class="c4 c0"></span></p>
   <p class="c2 c6"><span class="c3"></span></p>
@@ -285,12 +308,12 @@
   <p class="c9 c6"><span class="c4 c0"></span></p>
   <p class="c2 c6"><span class="c3"></span></p>
   <p class="c2"><span class="c3">&nbsp; &nbsp;</span></p>
-  <p class="c7"><span class="c3">Por concepto de SOFTWARE DE ENV&Iacute;OS MASIVOS</span></p>
+  <p id="concepto" class="c7"><span class="c3">XXXXXXXXXXXXXXXXXXXXXXXXXXX</span></p>
   <p class="c7 c6"><span class="c3"></span></p>
-  <p class="c7"><span class="c3">Mes: Febrero</span></p>
+  <p id="mes-actual" class="c7"><span class="c3">Mes: Febrero</span></p>
   <p class="c5" id="h.30j0zll"><span class="c3"></span></p>
-  <p class="c7 c15" id="h.1fob9te"><span class="c16">Valor del servicio &nbsp;</span><span class="c4 c0">$80.000.00
-      (ochenta mil pesos m/cte).</span></p>
+  <p id="valor-servicio" class="c7 c15" id="h.1fob9te"><span class="c16">Valor del servicio &nbsp;</span><span
+      class="c4 c0">xxxxxxxxxx</span></p>
   <p class="c5" id="h.3znysh7"><span class="c3"></span></p>
   <p class="c5"><span class="c3"></span></p>
   <p class="c2"><span class="c3">Atentamente,</span></p>
@@ -304,22 +327,26 @@
   <p class="c2 c6"><span class="c3"></span></p>
   <p class="c2 c6"><span class="c3"></span></p>
   <p class="c2 c6"><span class="c3"></span></p>
-  <p class="c2"><span class="c0">MIGUEL ARCILA BERNAL</span><span
-      style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 214.13px; height: 215.00px;"><img
-        alt="" src="images/image1.jpg"
-        style="width: 215.00px; height: 215.00px; margin-left: -0.43px; margin-top: -0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);"
-        title=""></span></p>
   <p class="c2 c6"><span class="c3"></span></p>
   <p class="c2 c6"><span class="c3"></span></p>
-  <p class="c2"><span class="c3">PERSONA NATURAL NO INSCRITA AL R&Eacute;GIMEN DEL IVA. &nbsp;</span></p>
-  <p class="c2 c6" id="h.2et92p0"><span class="c3"></span></p>
-  <p class="c2"><span class="c3">FECHA DE VENCIMIENTO: 29 &nbsp;DE FEBRERO DE 2024.</span></p>
-  <p class="c2 c6"><span class="c3"></span></p>
-  <p class="c2"><span class="c3">Favor consignar a la cuenta:</span></p>
-  <p class="c2"><span class="c3">Ahorros Bancolombia</span></p>
-  <p class="c2"><span class="c3">#02919098298</span></p>
-  <p class="c2"><span class="c3">Miguel Arcila Bernal</span></p>
-  <p class="c2"><span class="c16">C.C. 1037637592</span></p>
+
+  <div class="grid-container">
+    <div class="grid-item">
+      <p class="c2"><span class="c3">PERSONA NATURAL NO INSCRITA AL R&Eacute;GIMEN DEL IVA. &nbsp;</span></p>
+      <p class="c2 c6" id="h.2et92p0"><span class="c3"></span></p>
+      <p id="fecha-vencimiento" class="c2"><span class="c3">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+      </p>
+      <p class="c2 c6"><span class="c3"></span></p>
+      <p class="c2"><span class="c3">Favor consignar a la cuenta:</span></p>
+      <p class="c2"><span class="c3">Ahorros Bancolombia</span></p>
+      <p class="c2"><span class="c3">#02919098298</span></p>
+      <p class="c2"><span class="c3">Miguel Arcila Bernal</span></p>
+      <p class="c2"><span class="c16">C.C. 1037637592</span></p>
+    </div>
+    <div class="grid-item-qr">
+      <img class="imagen-firma" alt="" src="images/image1.jpg" style="width: 215.00px; height: 215.00px;" title="">
+    </div>
+  </div>
 </body>
 
 </html>
