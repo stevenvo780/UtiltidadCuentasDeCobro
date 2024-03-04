@@ -99,7 +99,9 @@ function procesarSiguienteDocumento(indice, datos) {
 
         elementoParaPDF.innerHTML = stylesHtml + doc.body.innerHTML;
 
-        generarPDF(`${data.nombreCliente}.pdf`, elementoParaPDF, function () {
+        const today = new Date();
+        const month = today.toLocaleDateString('es-ES', { month: 'long' });
+        generarPDF(`${data.nombreCliente}-${month}.pdf`, elementoParaPDF, function () {
           document.body.removeChild(elementoParaPDF);
           procesarSiguienteDocumento(indice + 1, datos);
         });
