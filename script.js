@@ -61,8 +61,7 @@ function modificarDocumento(datos, doc) {
   if (mesActual) {
     mesActual.textContent = `Mes: ${month}`;
   }
-
-  const fechaVencimientoDate = new Date(datos.fechaVencimiento);
+  const fechaVencimientoDate = excelDateToJSDate(datos.fechaVencimiento);
   const dayFechaVencimiento = fechaVencimientoDate.getDate();
   const monthFechaVencimiento = fechaVencimientoDate.toLocaleDateString('es-ES', { month: 'long' });
   const yearFechaVencimiento = fechaVencimientoDate.getFullYear();
@@ -141,4 +140,11 @@ function generarPDF(fileName, element, callback) {
       callback();
     }
   }).catch(error => console.error("Error generating PDF", error));
+}
+
+function excelDateToJSDate(serial) {
+  var date = new Date(Date.UTC(0, 0, serial, 0, 0, 0));
+  var startDate = new Date(Date.UTC(1899, 11, 30)); // Fecha base de Excel
+  var days = Math.round((date - startDate) / (1000 * 60 * 60 * 24));
+  return new Date(startDate.getTime() + days * (1000 * 60 * 60 * 24));
 }
