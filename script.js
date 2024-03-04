@@ -62,7 +62,7 @@ function modificarDocumento(datos, doc) {
     mesActual.textContent = `Mes: ${month}`;
   }
 
-  const fechaVencimientoDate = new Date(data.fechaVencimiento);
+  const fechaVencimientoDate = new Date(datos.fechaVencimiento);
   const dayFechaVencimiento = fechaVencimientoDate.getDate();
   const monthFechaVencimiento = fechaVencimientoDate.toLocaleDateString('es-ES', { month: 'long' });
   const yearFechaVencimiento = fechaVencimientoDate.getFullYear();
