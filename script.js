@@ -41,11 +41,8 @@ function modificarDocumento(datos, doc) {
   if (concepto) concepto.textContent = 'Por concepto de ' + datos.concepto;
 
   const valor = doc.getElementById('valor-servicio');
-  if (valor) valor.textContent = `Valor del servicio $${datos.valor} (pesos m/cte).`;
+  if (valor) valor.textContent = `Valor del servicio $${datos.valor}.`;
 
-
-  const fechaVencimiento = doc.getElementById('fecha-vencimiento');
-  if (fechaVencimiento) fechaVencimiento.textContent = `Fecha de vencimiento: ${datos.fechaVencimiento}`;
 
   const numeroCuentaCobro = doc.getElementById('numero-cuenta-cobro');
   if (numeroCuentaCobro) numeroCuentaCobro.textContent = `Cuenta de cobro #${datos.numeroCuentaCobro}`;
@@ -64,6 +61,14 @@ function modificarDocumento(datos, doc) {
   if (mesActual) {
     mesActual.textContent = `Mes: ${month}`;
   }
+
+  const fechaVencimientoDate = new Date(data.fechaVencimiento);
+  const dayFechaVencimiento = fechaVencimientoDate.getDate();
+  const monthFechaVencimiento = fechaVencimientoDate.toLocaleDateString('es-ES', { month: 'long' });
+  const yearFechaVencimiento = fechaVencimientoDate.getFullYear();
+
+  const fechaVencimiento = doc.getElementById('fecha-vencimiento');
+  if (fechaVencimiento) fechaVencimiento.textContent = `Fecha de vencimiento: ${dayFechaVencimiento} de ${monthFechaVencimiento} de ${yearFechaVencimiento}`;
 }
 
 function generarPDFs() {
@@ -94,7 +99,7 @@ function procesarSiguienteDocumento(indice, datos) {
 
         elementoParaPDF.innerHTML = stylesHtml + doc.body.innerHTML;
 
-        generarPDF(`documento-modificado-${data.documentClient}.pdf`, elementoParaPDF, function () {
+        generarPDF(`${data.nombreCliente}.pdf`, elementoParaPDF, function () {
           document.body.removeChild(elementoParaPDF);
           procesarSiguienteDocumento(indice + 1, datos);
         });
